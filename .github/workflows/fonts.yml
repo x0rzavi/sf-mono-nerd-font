@@ -1,5 +1,5 @@
 name: fonts
-on: 
+on:
   workflow_dispatch:
 defaults:
   run:
@@ -9,18 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      
-    - name: Build
-      run: source fonts.sh
-      
-    - name: Tags
-      run: echo "fileTag=$(date +%d-%m-%Y-%H-%M)" >> $GITHUB_ENV
-      
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: AppleFontsNerdPatched.7z
-        name: Apple Fonts Nerd Patched
-        tag_name: ${{ env.fileTag }}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: source fonts.sh
+
+      - name: Tags
+        run: echo "fileTag=$(date +%d-%m-%Y-%H-%M)" >> $GITHUB_ENV
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: AppleFonts.7z
+          name: Apple Fonts Nerd Patched
+          tag_name: ${{ env.fileTag }}
