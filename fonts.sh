@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Description: Automatically patch Apple's SF Mono Fonts selectively with nerdfonts patcher
 # Dependencies: 7z, aria2
@@ -40,6 +40,7 @@ apple_fonts() {
 			mv Library/Fonts/* "$directory/tmpdir/AppleFonts/"
 		fi
 		cd "$directory/tmpdir/"
+		rm -rf src/*
 	done
 	rm -rf src/
 
